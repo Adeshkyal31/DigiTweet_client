@@ -5,7 +5,7 @@
 	},
 	"proxies":{
 		"/api":{
-			"origin": "https://digittweet-server.herokuapp.com/"
+			"origin": "https://digittweet-server.herokuapp.com/api"
 		}
 	}
 }
