@@ -14,7 +14,7 @@ export const remove = id => ({
 
 export const removeMessage = (user_id, message_id) => {
   return dispatch => {
-    return apiCall("delete", `/api/users/${user_id}/messages/${message_id}`)
+    return apiCall("delete", `https://digittweet-server.herokuapp.com/api/users/${user_id}/messages/${message_id}`)
       .then(() => dispatch(remove(message_id)))
       .catch(err => {
         addError(err.message);
@@ -24,7 +24,7 @@ export const removeMessage = (user_id, message_id) => {
 
 export const fetchMessages = () => {
   return dispatch => {
-    return apiCall("GET", "/api/messages")
+    return apiCall("GET", "https://digittweet-server.herokuapp.com/api/messages")
       .then(res => {
         dispatch(loadMessages(res));
       })
@@ -37,7 +37,7 @@ export const fetchMessages = () => {
 export const postNewMessage = text => (dispatch, getState) => {
   let { currentUser } = getState();
   const id = currentUser.user.id;
-  return apiCall("post", `/api/users/${id}/messages`, { text })
+  return apiCall("post", `https://digittweet-server.herokuapp.com/api/users/${id}/messages`, { text })
     .then(res => {})
     .catch(err => addError(err.message));
 };
