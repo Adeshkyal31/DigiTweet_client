@@ -1,5 +1,4 @@
 import axios from "axios";
-headers: {"Access-Control-Allow-Origin": "*"}
 export function setTokenHeader(token) {
   if (token) {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
